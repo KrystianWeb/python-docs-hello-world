@@ -14,4 +14,4 @@ def squared_value():
     
     return jsonify(number*number)
 
-app.run()
+#app.run()
