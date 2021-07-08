@@ -1,0 +1,30 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>Testowe api - {{ title }}</title>
+    {% else %}
+        <title>Testowe api</title>
+    {% endif %}
+</head>
+<body>
+    <h1>Moje super api!!!</h1>
+    {% for element in list%}
+        <h1>{{ element.title }}</h1>
+        <p>By {{ element.author }} on {{ element.date }}</p>
+        <p>{{ element.content }}</p>
+    {% endfor%}
+</body>
+</html> -->
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Moje super api!!!</h1>
+    {% for element in list%}
+        <h1>{{ element.title }}</h1>
+        <p>By {{ element.author }} on {{ element.date }}</p>
+        <p>{{ element.content }}</p>
+    {% endfor%}
+{% endblock content %}
