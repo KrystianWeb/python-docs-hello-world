@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, render_template, url_for
+import pandas as pd
 app = Flask(__name__)
 
 #---------dummy data----------
@@ -30,6 +31,10 @@ list = [
 def home():
     return render_template('home.html', list=list, title='TEST')
 
+@app.route("/test")
+def test():
+    return jsonify(list)
+
 @app.route("/squared", methods=['POST','GET'])
 def squared_value():
     if 'number' in request.args:
@@ -37,7 +42,10 @@ def squared_value():
     else:
         return "Error: No number field provided. Please specify a number."
     
-    return jsonify(number*number)
+    if request.method=="GET":
+        return jsonify(number*number)
+    if request.method=="POST":
+        return jsonify(number*number*number)
 
 if __name__ == '__main__':
     app.run(debug=True)
