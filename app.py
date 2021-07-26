@@ -42,7 +42,10 @@ def squared_value():
     else:
         return "Error: No number field provided. Please specify a number."
     
-    return jsonify(number*number)
+    if request.method=="GET":
+        return jsonify(number*number)
+    if request.method=="POST":
+        return jsonify(number*number*number)
 
 if __name__ == '__main__':
     app.run(debug=True)
